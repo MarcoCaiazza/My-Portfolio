@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+:root {
+    --background: rgb(10, 0, 27);
+    --foreground: #333333;
+}
+
+
+body {
+    /* background: var(--background); */
+    /* color: var(--foreground); */
+    font-family: 'Montserrat', sans-serif;
+    /* overflow-x: hidden; */
+  }
