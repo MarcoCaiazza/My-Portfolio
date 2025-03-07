@@ -43,18 +43,17 @@ export default function ProjectsUI() {
       alt: "img-wheaterapp",
       title: "AppMeteo",
       description:
-        "L'applicazione Meteo è un progetto sviluppato utilizzando tecnologie front-end come HTML, CSS e JavaScript. L'obiettivo dell'app è consentire agli utenti di consultare le previsioni meteo per diverse città in modo semplice e intuitivo. Per ottenere i dati meteorologici, l'app interroga l'API di Openweathermap, sfruttando le potenzialità delle funzioni asincrone di JavaScript tramite Async/Await.",
+        "L'applicazione Meteo è un progetto sviluppato utilizzando tecnologie front-end come HTML, CSS e JavaScript. L'obiettivo dell'app è consentire agli utenti di consultare le previsioni meteo per diverse città in modo semplice e intuitivo. Per ottenere i dati meteorologici, l'app interroga l'API di OpenWeatherMap, sfruttando le potenzialità delle funzioni asincrone di JavaScript tramite Async/Await.",
       github: "https://github.com/MarcoCaiazza/WeatherApp",
       repository: "https://marcocaiazza.github.io/WeatherApp/",
     },
-
     {
       id: 3,
       img: "/calcolatrice.png",
       alt: "img-calculator",
       title: "Games",
       description:
-        "L'applicazione Games è un progetto sviluppato con React e bootstrap per lo styling. E' una piattaforma che consente di fare ricerche avanzate per trovare giochi, ed ogni pagina di gioco include descrizioni, immagini e informazioni sul genere ricercato. I dati vengono recuperati  dall'API di Rawg.io, mentre per la gestione dei dati degli utenti, utilizzo Supabase.",
+        "L'applicazione Games è un progetto sviluppato con React e Bootstrap utilizzando Vite come build tool per lo sviluppo. E' una piattaforma che consente di fare ricerche avanzate per trovare giochi, ed ogni pagina di gioco include descrizioni, immagini e informazioni sul genere ricercato. I dati vengono recuperati dall'API di Rawg.io, mentre per la gestione dei dati degli utenti, utilizzo Supabase.",
     },
     {
       id: 4,
@@ -62,18 +61,20 @@ export default function ProjectsUI() {
       alt: "img-bestmovies",
       title: "BestMovies",
       description:
-        "L'applicazione BestMovies è un progetto sviluppato utilizzando tecnologie front-end come HTML, CSS e JavaScript. L'obiettivo dell'app è consentire agli utenti di consultare le previsioni meteo per diverse città in modo semplice e intuitivo. Per ottenere i dati meteorologici, l'app interroga l'API di Openweathermap, sfruttando le potenzialità delle funzioni asincrone di JavaScript tramite Async/Await.",
+        "BestMovies è una piattaforma sviluppata con React, Supabase per il backend e l'autenticazione, e Bootstrap CSS per lo stile. Utilizzando l'API di TheMovieDB, gli utenti possono scoprire i film più popolari e le ultime uscite, effettuare ricerche mirate, visualizzare i dettagli di ogni titolo, aggiungerli ai preferiti e lasciare recensioni, creando un'esperienza interattiva e personalizzata per gli amanti del cinema.",
       github: "https://github.com/MarcoCaiazza/Marco-Caiazza-Progetto-Finale",
       repository: "https://bestmovies-marco-caiazza.vercel.app/",
     },
     {
       id: 5,
-      img: "/appmeteo.png",
+      img: "/portfolioImage.png",
       alt: "img-portfolio",
       title: "Portfolio",
       description:
-        "L'applicazione Meteo è un progetto sviluppato utilizzando tecnologie front-end come HTML, CSS e JavaScript. L'obiettivo dell'app è consentire agli utenti di consultare le previsioni meteo per diverse città in modo semplice e intuitivo. Per ottenere i dati meteorologici, l'app interroga l'API di Openweathermap, sfruttando le potenzialità delle funzioni asincrone di JavaScript tramite Async/Await.",
-    },
+        "Il portfolio è un Single Page Website sviluppato in React. Ogni sezione è progettata per presentare in modo chiaro e intuitivo il mio profilo, includendo una descrizione personale, una panoramica dei miei progetti e un'area dedicata ai contatti. Nella sezione contatti, oltre ai miei profili social, è presente un modulo per l'invio di email, implementato tramite una libreria esterna (email/browser), che consente una comunicazione diretta e immediata. Il design e l'esperienza utente sono ottimizzati attraverso l'uso di link ancorati nella navbar, garantendo una navigazione fluida e intuitiva tra le sezioni.",
+      github: "https://github.com/MarcoCaiazza/My-Portfolio",
+      repository: "",
+      },
   ];
 
   const selectedProject = projects.find((p) => p.id === imgClickedId);
@@ -86,7 +87,7 @@ export default function ProjectsUI() {
 
   return (
     <>
-      <div className="flex flex-col items-center">
+      <div className="flex flex-col items-center bg-white">
         <div className="text-transparent " id="projects">i miei progetti</div>
         <div className="max-w-screen-lg border-b border-gray-900/20 pt-14 pb-20 w-[90%] md:w-auto">
           <div className="flex flex-col items-center justify-center max-w-screen-lg ">
@@ -123,8 +124,6 @@ export default function ProjectsUI() {
             <p className="pt-3 text-sm md:text-base">Una raccolta di progetti su cui ho lavorato.</p>
           </div>
 
-          {/* <div className="sm:grid sm:grid-cols-3 mt-0 sm:mt-16 gap-10 bg-red-600 " */}
-
           <div className="flex flex-col md:grid md:grid-cols-3 md:mt-16 p-9 md:p-0 gap-20 md:gap-10"
 
           >
@@ -154,7 +153,6 @@ export default function ProjectsUI() {
                   <h1 className="font-semibold text-xl ">{project.title}</h1>
                 </div>
 
-                {/* icone */}
                 <div className="pt-3 pl-2 flex gap-3 mt-auto ">
                   <a href={project.github} target="blank">
                     {" "}
@@ -180,12 +178,10 @@ export default function ProjectsUI() {
               </div>
             ))}
           </div>
-          {/* sopra */}
         </div>
 
         <AnimatePresence>
           {imgClickedId > 0 && (
-            // div gradnde chiaro
             <motion.div
               className="fixed inset-0 z-50 flex items-center justify-center bg-gray-700 bg-opacity-70 "
               initial={{ opacity: 0 }}
@@ -194,7 +190,6 @@ export default function ProjectsUI() {
               transition={{ duration: 0.3 }}
               onClick={closeimg}
             >
-              {/* div piccolo contenente img */}
               <motion.div
                 className="relative flex flex-col justify-center items-center max-w-screen-sm border-2 rounded-lg p-2 bg-white"
                 initial={{ scale: 0.8, opacity: 0 }}
@@ -212,9 +207,6 @@ export default function ProjectsUI() {
                     style={{
                       maskImage:
                         "linear-gradient(to bottom, rgb(255, 255, 255), rgba(255, 255, 255, 0.1))",
-
-                      // WebkitMaskimg:
-                      //   "linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0))",
                     }}
                   />
                   {selectedProject && (

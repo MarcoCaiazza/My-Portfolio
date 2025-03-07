@@ -8,7 +8,7 @@ import { useInView } from "react-intersection-observer";
 // const [mobileInView, setMobileInView] = useState(isMobile);
 
 export default function AboutMeUI() {
-  const [activeTab, setActiveTab] = useState<string>("");
+  const [activeTab, setActiveTab] = useState<string>("skills");
   const [isSkillsClicked, setIsSkillsClicked] = useState<boolean>(false);
   const [isMobile, setIsMobile] = useState(false);
   // const Motionimg = motion(img);
@@ -106,7 +106,7 @@ handleResize();
       <span id="about" className="text-transparent">
         mi presento
       </span>
-      <div className="flex flex-col items-center">
+      <div className="flex flex-col items-center bg-white">
         <div className="max-w-screen-lg border-b border-gray-900/20 pb-20 ">
           <div className="flex flex-col items-center justify-center max-w-screen-lg mt-14">
             <motion.h1
@@ -142,15 +142,15 @@ handleResize();
            <div className="w-[300px] md:w-auto ">
 
             <p className="pt-3 text-center sm:text-left">
-              Sono un appassionato di front-end development e mi piace
+              Appassionato di Front-End Development, mi piace
               realizzare progetti semplici, esteticamente piacevoli e facili da
               usare.
             </p>
             <p className="pt-3 text-center sm:text-left">
               Nel tempo libero, mi piace allenarmi (o almeno ci provo!), in
-              particolare {`all'aria`} aperta. <br /> Dopo ogni sessione, mi concedo
+              particolare all'aria aperta. <br /> Dopo ogni allenamento, mi concedo
               sempre un pò di stretching per rilassare corpo e mente, tutto
-              questo, mentre ascolto della buona musica come il Pop Rock 🎵.
+              questo, mentre ascolto della buona musica 🎵.
             </p>
             <p className="pt-3 text-center sm:text-left">
               Inoltre, il mio hobby preferito è viaggiare ✈️: amo scoprire nuovi
@@ -159,10 +159,10 @@ handleResize();
             </div>
           </div>
 
-          <div className="flex flex-col justify-evenly max-w-screen-lg mt-20 md:flex-row bg-red-600">
+          <div className="flex flex-col justify-evenly max-w-screen-lg mt-20 md:flex-row">
             <motion.div
               ref={leftRef}
-              className="flex flex-col gap-5 order-first md:order-none justify-between md:w-1/4 w-full bg-purple-200"
+              className="flex flex-col gap-5 order-first md:order-none justify-between md:w-1/4 w-full mb-10 md:mb-0"
               initial={{ opacity: 0, transform: 'translateX(-200px)' }}
               animate={isLeftInView ? { opacity: 1, transform: 'translateX(0)' } : { opacity: 0, transform: 'translateX(-200px)' }}
               style={{ visibility: isLeftInView ? "visible" : "hidden" }}
@@ -171,13 +171,6 @@ handleResize();
                 ease: "easeInOut",
               }}
             >
-              {/* <button className="bg-[rgb(31,41,55)] text-white flex items-center gap-5 pl-20 md:pl-10 rounded-xl h-[50px] hover:bg-sky-100 hover:text-black focus:bg-sky-100 focus:text-black transition-colors duration-500 hover:scale-105 transition-transform duration-500 relative group border border-transparent hover:border-3 hover:border-gray-300 focus:border-3 focus:border-gray-300 shadow-[10px_0px_20px_0px_rgba(120,120,120,0.6)] hover:shadow-none focus:shadow-none before:absolute before:inset-0 before:rounded-xl before:border-[3px] before:border-transparent before:bg-gradient-to-r before:from-transparent before:to-gray-300 before:opacity-0 group-hover:before:opacity-100 group-focus:before:opacity-100 before:transition-opacity before:duration-500" onClick={() => tabChange("skills")}>
-                        Tecnologie
-              </button>
-
-              <button className="bg-[rgb(31,41,55)] text-white flex items-center gap-5 pl-20 md:pl-10 rounded-xl h-[50px] hover:bg-sky-100 hover:text-black focus:bg-sky-100 focus:text-black transition-colors duration-500 hover:scale-105 transition-transform duration-500 relative group border border-transparent hover:border-3 hover:border-gray-300 focus:border-3 focus:border-gray-300 shadow-[10px_0px_20px_0px_rgba(120,120,120,0.6)] hover:shadow-none focus:shadow-none before:absolute before:inset-0 before:rounded-xl before:border-[3px] before:border-transparent before:bg-gradient-to-r before:from-transparent before:to-gray-300 before:opacity-0 group-hover:before:opacity-100 group-focus:before:opacity-100 before:transition-opacity before:duration-500" onClick={() => tabChange("certifications")}>
-                        Certificazione
-              </button> */}
               {buttons.map((btn) => (
                 <button
                   key={btn.id}
@@ -189,16 +182,12 @@ handleResize();
                     src={btn.icon}
                     alt={btn.alt}
                     className="w-8 absolute transition-opacity duration-500 opacity-100 group-hover:opacity-0 group-focus:opacity-0"
-                    // width={32}
-                    // height={32}
                   />
                   <img
                     key={btn.id + 20}
                     src={btn.iconBlack}
                     alt={btn.alt}
                     className="w-8 transition-opacity duration-500 opacity-0 group-hover:opacity-100 group-focus:opacity-100"
-                    // width={32}
-                    // height={32}
                   />
                   <p>{btn.title}</p>
                 </button>
@@ -208,7 +197,7 @@ handleResize();
             <motion.div
               key={isMobile ? "mobile" : "desktop"}
               ref={rightRef}
-              className="gap-10 p-4 overflow-hidden rounded-3xl shadow-[5px_0px_10px_5px_rgba(150,150,150,0.3)] bg-orange-200"
+              className="gap-10 p-4 overflow-hidden rounded-3xl shadow-[5px_0px_10px_5px_rgba(150,150,150,0.3)]"
               initial={isMobile ? { y: 200, opacity: 0 } : { x:200, opacity: 0 }}
               
               animate={
@@ -272,8 +261,6 @@ handleResize();
                         src="/aulab.png"
                         alt="logo-aulab"
                         className="w-32 h-auto"
-                        // width={128}
-                        // height={128}
                       />
                     </div>
 
@@ -346,8 +333,6 @@ handleResize();
                       src="/kibernetes.png"
                       alt="logo-aulab"
                       className="w-32 h-auto"
-                      width={128}
-                      height={128}
                     />
                   </div>
 

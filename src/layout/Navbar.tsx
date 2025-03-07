@@ -1,6 +1,5 @@
 import { useState } from "react";
-// import { } from "framer-;
-// import img from "next/img";
+import { motion } from "framer-motion";
 
 
 
@@ -8,9 +7,7 @@ export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   const [activeLink, setActiveLink] = useState<string>("#home");
 
-  // Funzione per alternare la visibilità del menu mobile
   const toggleMenu = (): void => {
-    console.log("bottone premuto");
     setIsMenuOpen(!isMenuOpen);
   };
 
@@ -29,17 +26,17 @@ export default function Navbar() {
 
   return (
     <>
-      <nav
+      <motion.nav
         className="bg-gray-800 sticky top-0 z-50 shadow-2xl h-[80px]"
-        // initial={{ y: -200, opacity: 0 }}
-        // animate={{
-        //   y: 0,
-        //   opacity: 100,
-        // }}
-        // transition={{
-        //   duration: 1.2,
-        //   ease: "easeInOut",
-        // }}
+        initial={{ y: -200, opacity: 0 }}
+        animate={{
+          y: 0,
+          opacity: 100,
+        }}
+        transition={{
+          duration: 1.2,
+          ease: "easeInOut",
+        }}
       >
         <div className="max-w-screen-lg mx-auto flex items-center justify-between pr-1 pt-2 ">
           {/* <!-- Logo a sinistra --> */}
@@ -48,8 +45,6 @@ export default function Navbar() {
             <img src="/logoBianco.png" 
             alt="logo" 
             className="w-16 h-16"
-            // width={64} 
-            // height={64}  
             />
           </div>
 
@@ -141,7 +136,7 @@ export default function Navbar() {
             </a>
           </div>
         </div>
-      </nav>
+      </motion.nav>
     </>
   );
 }
